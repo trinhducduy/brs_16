@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td>
+    <%= category.description.truncate 100 %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.edit"), edit_admin_category_path(category),
+      class: "btn btn-default" %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.delete"), [:admin, category], class: "btn btn-danger",
+      method: :delete, data: {confirm: t("application.messages.confirm")} %>
+  </td>
+</tr>

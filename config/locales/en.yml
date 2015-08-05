@@ -3,6 +3,18 @@ en:
     general:
       title: "Book Review System"
       about: "About"
+    buttons:
+      edit: "Edit"
+      delete: "Delete"
+      save: "Save"
+      add: "Add"
+      back: "Back"
+    flash:
+      permission_denied: "Permission Denied"
+      category_created: "Category has been created successfully !"
+      category_created_failed: "Failed to create category"
+    messages:
+      confirm: "Are you sure ?"
   devise:
     sessions:
       new:
@@ -23,3 +35,11 @@ en:
       forgot_password: "Forgot password"
       reset_password_instructions: "Send me reset password instructions"
       change_password: "Change password"
+  admin:
+    categories:
+      new:
+        title: "Create new category"
+      index:
+        title: "All categories"
+        name: "Name"
+        description: "Description"
