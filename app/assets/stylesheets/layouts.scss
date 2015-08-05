@@ -18,6 +18,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   background: $gray-extra-light;
+  padding-bottom: 60px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -85,6 +86,12 @@ input[type="text"] {
 input[type="password"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.ui-datepicker {
+  background: $white;
+  padding: 10px 20px !important;
+  box-shadow: 1px 2px 0px $gray-light
 }
 
 .pagination {

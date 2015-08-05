@@ -13,8 +13,10 @@ en:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
       category_created_failed: "Failed to create category"
+      create_book_success: "Create book successfully"
     messages:
       confirm: "Are you sure ?"
+      wrong_date: "can't be in the future"
   devise:
     sessions:
       new:
@@ -35,6 +37,7 @@ en:
       forgot_password: "Forgot password"
       reset_password_instructions: "Send me reset password instructions"
       change_password: "Change password"
+
   admin:
     categories:
       new:
@@ -43,3 +46,7 @@ en:
         title: "All categories"
         name: "Name"
         description: "Description"
+    books:
+      new:
+        create_book_title: "Create book"
+        create_book: "Create"
