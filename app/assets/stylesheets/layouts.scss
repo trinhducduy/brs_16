@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);
+
+$white: #FFFFFF;
+$gray: #95A5A6;
+$gray-extra-light: #ECF0F1;
+$gray-light: #BDC3C7;
+$gray-dark: #7F8C8D;
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  line-height: 1.6em;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background: $gray-extra-light;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+}
+
+.block {
+  background: $white;
+  border: 1px solid $gray-light;
+}
+
+.navbar-inverse {
+  background: $gray-dark;
+  border-bottom: 0;
+  a {
+    color: $gray-extra-light !important;
+    &:hover {
+      color: $gray-light  !important;
+    }
+  }
+}
+
+#footer {
+  background: $white;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
