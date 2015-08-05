@@ -12,6 +12,13 @@
     <div class="navbar-collapse collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("application.general.about"), about_path %></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to t("application.buttons.request_new_book"), new_request_path,
+              id: "requestBook", "data-modal-title": t("requests.general.request_new_book"),
+              class: "btn btn-primary btn-sm" %>
+          </li>
+        <% end %>
        </ul>
     </div>
   </div>

@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);
 
 $white: #FFFFFF;
+$white-dark: #FAFAFA;
 $gray: #95A5A6;
 $gray-extra-light: #ECF0F1;
 $gray-light: #BDC3C7;
@@ -41,6 +42,13 @@ h1, h2, h3, h4, h5 {
     color: $gray-extra-light !important;
     &:hover {
       color: $gray-light  !important;
+    }
+  }
+  #requestBook {
+    &:hover, &:focus {
+      background: $brand-primary;
+      border: 1px solid transparent;
+      color: $white-dark !important;
     }
   }
 }
