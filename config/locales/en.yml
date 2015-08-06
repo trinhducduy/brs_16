@@ -14,6 +14,9 @@ en:
       category_created: "Category has been created successfully !"
       category_created_failed: "Failed to create category"
       create_book_success: "Create book successfully"
+      category_updated: "Category has been updated successfully !"
+      category_deleted: "Category has been deleted successfully !"
+      category_deleted_failed: "Failed to delete %{category}"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
@@ -42,6 +45,8 @@ en:
     categories:
       new:
         title: "Create new category"
+      edit:
+        title: "Edit %{category}"
       index:
         title: "All categories"
         name: "Name"
