@@ -16,10 +16,12 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery-ui/datepicker
+//= require flip/dist/jquery.flip
 //= require_tree .
 
 $(document).on("page:change", function(){
   $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+  $(".book-item .flip").flip({trigger: "hover", speed: 700});
 
   $("#requestBook").on("click", function(e){
     e.preventDefault();

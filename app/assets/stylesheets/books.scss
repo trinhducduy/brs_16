@@ -1,0 +1,50 @@
+@import "variables";
+
+.book-container {
+  padding: 10px;
+  border: none;
+  .book-item {
+    height: 280px;
+    margin-bottom: 30px;
+    .flip {
+      height: 220px;
+      overflow: hidden;
+    }
+    .book-img {
+      width: 100%;
+    }
+    .short-desc {
+      font-size: 12px;
+      padding: 10px 10px 0;
+    }
+    .back {
+      background: $gray-light;
+      .btn-view {
+        display: block;
+        margin: auto;
+        width: 100px;
+        backface-visibility: visible !important;
+      }
+    }
+    .title, .author {
+      text-align: center;
+      margin: 5px auto;
+      height: 30px;
+      max-width: 180px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      a {
+        color: #222;
+        text-decoration: none;
+        &:hover {
+          color: #555;
+        }
+      }
+    }
+    .author {
+      margin: 0;
+      line-height: 1;
+    }
+  }
+}

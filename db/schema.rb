@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805091146) do
+ActiveRecord::Schema.define(version: 20150806085114) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_type"
@@ -38,12 +38,14 @@ ActiveRecord::Schema.define(version: 20150805091146) do
     t.string   "title"
     t.string   "image"
     t.string   "published_date"
+    t.string   "date"
     t.string   "author"
     t.integer  "number_of_page"
     t.text     "description"
     t.integer  "category_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "average_rating", default: 0
   end
 
   add_index "books", ["category_id"], name: "index_books_on_category_id"

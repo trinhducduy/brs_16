@@ -12,6 +12,6 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [180, 300]
+    process resize_to_fill: [250, 400]
   end
 end
