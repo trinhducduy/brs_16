@@ -3,3 +3,23 @@ en:
     general:
       title: "Book Review System"
       about: "About"
+  devise:
+    sessions:
+      new:
+        title: "Welcome Back! Please Sign In"
+        email: "Email"
+        password: "Password"
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+    registers:
+      new:
+        name: "Name"
+        confirm_password: "Confirm password"
+        sign_up: "Sign up"
+        title: "Welcome You! Please Sign up"
+    general:
+      log_in_message: "Have account? Please sign in"
+      sign_up_message: "Not registers? Please sign up"
+      forgot_password: "Forgot password"
+      reset_password_instructions: "Send me reset password instructions"
+      change_password: "Change password"

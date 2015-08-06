@@ -1,3 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "layouts";
+
+.alert-alert {
+  @extend .alert-warning;
+}
