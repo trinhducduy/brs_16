@@ -144,3 +144,18 @@ input[type="password"] {
     }
   }
 }
+
+.image-container {
+  position: relative;
+}
+
+.preview {
+  border: 4px dashed $gray-light;
+  margin-top: -10px;
+  position: absolute;
+  right: 0;
+  top: -25px;
+  width: 180px;
+  height: 150px;
+  overflow: hidden;
+}

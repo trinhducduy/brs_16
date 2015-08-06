@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "books#index"
     resources :categories
-    resources :books
+    resources :books, except: [:show]
   end
 end
