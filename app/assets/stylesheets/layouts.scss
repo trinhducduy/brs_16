@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
 
+.alert {
+  padding: 10px 25px;
+}
+
 .block {
   background: $white;
   border: 1px solid $gray-light;
@@ -48,7 +52,6 @@ h1, h2, h3, h4, h5 {
   width: 100%;
 }
 
-/**/
 .wrapper {
   margin-top: 80px;
   margin-bottom: 20px;
@@ -82,4 +85,47 @@ input[type="text"] {
 input[type="password"] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.pagination {
+  background: $white;
+  cursor: default;
+  float:right;
+  a, span, em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: $gray-light;
+    border: 1px solid $gray;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $gray;
+    color: white;
+    border: 1px solid $gray;
+  }
+  a {
+    text-decoration: none;
+    color: $gray;
+    border: 1px solid $gray;
+    &:hover, &:focus {
+      color: $gray-dark;
+      border-color: $gray-dark;
+    }
+  }
+  .page_info {
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+    b {
+      color: $gray-dark;
+      padding: 0.1em 0.25em;
+    }
+  }
 }

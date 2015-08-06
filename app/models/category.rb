@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true, length: {minimum: 5}
   validates :description, presence: true, length: {minimum: 15}
+
+  scope :latest, ->{order created_at: :desc}
 end
