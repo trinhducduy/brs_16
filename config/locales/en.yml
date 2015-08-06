@@ -9,6 +9,9 @@ en:
       save: "Save"
       add: "Add"
       back: "Back"
+      request_new_book: "Request New Book"
+      close: "Close"
+      send: "Send"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -17,6 +20,12 @@ en:
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
+      request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
+  requests:
+    general:
+      request_new_book: "Request A New Book"
+      book_title: "Please provide name of the book"
+      author: "Please provide name of book's author"
   devise:
     sessions:
       new:

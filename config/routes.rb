@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root "books#index"
   get "about", to: "static_pages#about"
 
+  resources :requests, only: [:new, :create]
+
   namespace :admin do
     root "books#index"
     resources :categories

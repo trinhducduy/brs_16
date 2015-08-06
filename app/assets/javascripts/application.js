@@ -18,6 +18,54 @@
 //= require jquery-ui/datepicker
 //= require_tree .
 
-$(document).on("page:change", function() {
+$(document).on("page:change", function(){
   $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+
+  $("#requestBook").on("click", function(e){
+    e.preventDefault();
+    var modal = $("#brsModal");
+    var modalTitle = $(this).data("modalTitle");
+    var url = $(this).attr("href");
+
+    modal.find(".modal-title").text(modalTitle);
+
+    $.get(url, {}).done(function(data) {
+      modal.find(".modal-body > .errors").empty();
+      modal.find(".modal-body > .content").empty().html(data);
+    });
+
+    modal.modal("show");
+  });
+
+  $("#brsModal").on("submit", "#new_request", function(e){
+    e.preventDefault();
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    var modal = $("#brsModal");
+
+    $.post(url, data, function(response){
+      if (response.status == "success") {
+        modal.modal("hide");
+        var message = getFlashMessage(response.message, "success");
+        $("#flash").append(message);
+      }
+      else {
+        var errors = getFormErrors(response.data);
+        modal.find(".modal-body > .errors").empty().prepend(errors);
+      }
+    }, "json");
+  })
 });
+
+function getFlashMessage(content, type){
+  return "<div class='alert alert-" + type + "'><a href='#' data-dismiss='alert'\
+    class='close'>x</a><ul><li>" + content + "</li></ul></div>";
+}
+
+function getFormErrors(errors) {
+  var wrapper = $("<ul class='alert alert-warning'></ul>");
+  for (i in errors) {
+    wrapper.append("<li>" + errors[i] + "</li>");
+  }
+  return wrapper;
+}
