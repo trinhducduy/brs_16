@@ -52,7 +52,15 @@ en:
       forgot_password: "Forgot password"
       reset_password_instructions: "Send me reset password instructions"
       change_password: "Change password"
-
+  books:
+    show:
+      review: "review"
+      description: "Book Description"
+      details: "Book Details"
+      page: "Pages"
+      published_date: "Published Date"
+      category: "Category"
+      by: "By"
   admin:
     categories:
       new:
