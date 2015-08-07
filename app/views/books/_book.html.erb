@@ -1,0 +1,26 @@
+<div class="col-md-2 col-sm-4 col-xs-6">
+  <div class="book-item">
+    <div class="flip">
+      <div class="front text-center">
+        <%= image_tag book.image.thumb.url, class: "img-responsive book-img",
+          alt: book.title %>
+      </div>
+      <div class="back">
+        <p class="short-desc">
+          <%= book.description.truncate(60).html_safe %>
+        </p>
+        <p class="text-center">
+          <%= render "shared/rating", rating: book.average_rating %>
+        </p>
+        <%= link_to t("application.buttons.view_detail"), book,
+          class: "btn btn-sm btn-primary btn-view" %>
+      </div>
+    </div>
+    <h3 class="title">
+      <%= link_to book.title, book %>
+    </h3>
+    <p class="author">
+      <%= book.author %>
+    </p>
+  </div>
+</div>
