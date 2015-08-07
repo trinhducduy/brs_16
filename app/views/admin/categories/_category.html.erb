@@ -1,4 +1,4 @@
-<tr>
+<tr id="category_<%= category.id %>">
   <td>
     <%= category.name %>
   </td>
@@ -11,6 +11,7 @@
   </td>
   <td>
     <%= link_to t("application.buttons.delete"), [:admin, category], class: "btn btn-danger",
-      method: :delete, data: {confirm: t("application.messages.confirm")} %>
+      method: :delete, data: {confirm: t("application.messages.confirm")},
+      remote: true %>
   </td>
 </tr>
