@@ -1,7 +1,15 @@
 <div class="row book-detail">
   <div class="col-md-12 block">
     <div class="col-md-3">
-      <%= image_tag @book.image.medium.url %>
+      <%= image_tag @book.image.thumb.url %>
+      <% if user_signed_in? %>
+        <div class="status">
+          <%= render "user_books/status" %>
+        </div>
+        <div class="favorites">
+          <%= render "user_books/favorites" %>
+        </div>
+      <% end %>
     </div>
     <div class="col-md-9 description">
       <h1 class="title"><%= @book.title %></h1>

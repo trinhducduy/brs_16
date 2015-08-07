@@ -1,0 +1,5 @@
+<%= link_to book_user_book_path(@book), class: "btn #{action_type(@user_book)} btn-favorites",
+  data: {action: action_type(@user_book)} do %>
+  <i class="glyphicon <%= @user_book && @user_book.favored? ? 'glyphicon-minus' : 'glyphicon-plus' %>"></i>
+  <%= t "application.buttons.favorites" %>
+<% end %>

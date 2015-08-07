@@ -1,3 +1,9 @@
 pagination:
   page_size: 1
 date_format: "%d-%m-%Y"
+user_books:
+  unread: mark_unread
+  read: mark_read
+  reading: mark_reading
+  favored: add_to_favorites
+  unfavored: remove_from_favorites

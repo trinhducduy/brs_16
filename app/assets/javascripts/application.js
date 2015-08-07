@@ -49,8 +49,7 @@ $(document).on("page:change", function(){
         modal.modal("hide");
         var message = getFlashMessage(response.message, "success");
         $("#flash").append(message);
-      }
-      else {
+      } else {
         var errors = getFormErrors(response.data);
         modal.find(".modal-body > .errors").empty().prepend(errors);
       }
@@ -70,6 +69,19 @@ $(document).on("page:change", function(){
     reader.readAsDataURL(file);
   });
 
+  $(".book-detail").on("click", ".book-marker, .btn-favorites, .tick", function(e){
+    e.preventDefault();
+    var actionType = $(this).data("action");
+    var url = $(this).attr("href");
+    $.post(url, {action_type: actionType}, function(response){
+      if (response.status == "success") {
+        updateUserBook(response.data)
+      } else {
+        var message = getFlashMessage(response.message, "danger");
+        $("#flash").append(message);
+      }
+    }, "json");
+  });
 });
 
 function getFlashMessage(content, type){
@@ -83,4 +95,31 @@ function getFormErrors(errors) {
     wrapper.append("<li>" + errors[i] + "</li>");
   }
   return wrapper;
+}
+
+function updateUserBook(userBook) {
+  var container = $(".book-detail");
+  var status = $(".book-detail").find(".current-status");
+  var favorites = $(".book-detail").find(".favorites > .btn");
+  var tick = "<i class='glyphicon glyphicon-ok tick'></i>";
+
+  if (userBook.status != "not_read") {
+    status.empty().html(tick + " " + userBook.status.charAt(0).toUpperCase()
+      + userBook.status.slice(1));
+  }
+
+  $(".book-marker[data-action='mark_" + userBook.status + "']").parent()
+    .addClass("hide").siblings().removeClass("hide");
+
+  if (userBook.favored) {
+    favorites.removeClass("add_to_favorites").addClass("remove_from_favorites")
+      .text(favorites.data("unfavored"));
+    favorites.data("action", "remove_from_favorites");
+    favorites.find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+  } else {
+    favorites.removeClass("remove_from_favorites").addClass("add_to_favorites")
+      .text(favorites.data("favored"));
+    favorites.data("action", "add_to_favorites");
+    favorites.find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+  }
 }
