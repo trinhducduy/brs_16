@@ -20,6 +20,9 @@ en:
       category_updated: "Category has been updated successfully !"
       category_deleted: "Category has been deleted successfully !"
       category_deleted_failed: "Failed to delete %{category}"
+      update_book_success: "Update book successfully"
+      delete_book_success: "Delete book successfully"
+      delete_book_failed: "Delete book failed"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
@@ -62,5 +65,6 @@ en:
         description: "Description"
     books:
       new:
-        create_book_title: "Create book"
-        create_book: "Create"
+        title: "Create book"
+      edit:
+        title: "Edit book"

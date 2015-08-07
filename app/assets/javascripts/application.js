@@ -33,7 +33,6 @@ $(document).on("page:change", function(){
       modal.find(".modal-body > .errors").empty();
       modal.find(".modal-body > .content").empty().html(data);
     });
-
     modal.modal("show");
   });
 
@@ -54,7 +53,21 @@ $(document).on("page:change", function(){
         modal.find(".modal-body > .errors").empty().prepend(errors);
       }
     }, "json");
-  })
+  });
+
+  $(".form-group input[type='file']").change(function(event) {
+    var preview = $("#preview_cover");
+    var input = $(event.currentTarget);
+    var file = input[0].files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      image_base64 = e.target.result;
+      preview.attr("src", image_base64);
+    };
+    reader.readAsDataURL(file);
+  });
+
 });
 
 function getFlashMessage(content, type){
