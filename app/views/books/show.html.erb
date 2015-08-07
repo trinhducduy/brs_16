@@ -1,0 +1,36 @@
+<div class="row book-detail">
+  <div class="col-md-12 block">
+    <div class="col-md-3">
+      <%= image_tag @book.image.medium.url %>
+    </div>
+    <div class="col-md-9 description">
+      <h1 class="title"><%= @book.title %></h1>
+      <p class="author"><%= t ".by" %> <%= @book.author %></p>
+      <p>
+        <%= render "shared/rating", rating: @book.average_rating %>
+        <span><%= pluralize @book.reviews.count, t(".review") %></span>
+      </p>
+      <h4><%= t ".description" %></h4>
+      <p>
+        <%= @book.description.html_safe %>
+      </p>
+      <h4><%= t ".details" %></h4>
+      <div class="row">
+        <div class="col-md-3"><%= t ".category" %></div>
+        <div class="col-md-9"><strong><%= @book.category.name %></strong></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><%= t ".published_date" %></div>
+        <div class="col-md-9">
+          <strong>
+            <%= @book.published_date.to_date.strftime Settings.date_format %>
+          </strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"><%= t ".pages" %></div>
+        <div class="col-md-9"><strong><%= @book.number_of_page %></strong></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150806085114) do
     t.string   "title"
     t.string   "image"
     t.string   "published_date"
-    t.string   "date"
     t.string   "author"
     t.integer  "number_of_page"
     t.text     "description"

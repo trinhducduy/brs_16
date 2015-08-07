@@ -48,3 +48,20 @@
     }
   }
 }
+
+.book-detail {
+  .block {
+    padding: 15px 0;
+  }
+  .title {
+    margin: 0;
+  }
+  .author {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .description {
+    text-align: justify;
+  }
+}
