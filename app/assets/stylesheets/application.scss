@@ -8,3 +8,11 @@
 .alert-alert {
   @extend .alert-warning;
 }
+.btn {
+  &.add_to_favorites {
+    @extend .btn-primary;
+  }
+  &.remove_from_favorites {
+    @extend .btn-danger;
+  }
+}

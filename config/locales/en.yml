@@ -12,6 +12,7 @@ en:
       request_new_book: "Request New Book"
       close: "Close"
       send: "Send"
+      favorites: "Favorites"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -23,6 +24,7 @@ en:
       update_book_success: "Update book successfully"
       delete_book_success: "Delete book successfully"
       delete_book_failed: "Delete book failed"
+      something_wrong: "Oops. Something wrong happens. Please try again later"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
@@ -61,6 +63,12 @@ en:
       published_date: "Published Date"
       category: "Category"
       by: "By"
+  user_books:
+    general:
+      mark_this_book_as: "Mark As"
+      read: "Read"
+      reading: "Reading"
+      not_read: "Mark As"
   admin:
     categories:
       new:

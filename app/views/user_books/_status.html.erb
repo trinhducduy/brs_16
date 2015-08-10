@@ -1,0 +1,28 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-success">
+    <span class="current-status">
+      <% unless @user_book.status == Settings.user_books.unread %>
+        <i class="glyphicon glyphicon-ok"></i>
+      <% end %>
+      <%= t "user_books.general.#{@user_book.status}" %>
+    </span>
+  </button>
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="glyphicon glyphicon-book"></i>
+    <span class="sr-only"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li class='<%= "hide" if @user_book.status == "read" %>'>
+      <%= link_to book_user_book_path(@book), class: "book-marker",
+        data: {action: "mark_read"} do %>
+        <%= t "user_books.general.read" %>
+      <% end %>
+    </li>
+    <li class='<%= "hide" if @user_book.status == "reading" %>'>
+      <%= link_to book_user_book_path(@book), class: "book-marker",
+        data: {action: "mark_reading"} do %>
+        <%= t "user_books.general.reading" %>
+      <% end %>
+    </li>
+  </ul>
+</div>

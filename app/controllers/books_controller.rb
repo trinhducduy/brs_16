@@ -6,6 +6,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    if current_user
+      @user_book = UserBook.find_or_initialize_by user_id: current_user.id,
+        book_id: @book.id
+    end
   end
 
   private

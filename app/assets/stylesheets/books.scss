@@ -64,4 +64,13 @@
   .description {
     text-align: justify;
   }
+  .status, .favorites {
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    .btn {
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
 }
