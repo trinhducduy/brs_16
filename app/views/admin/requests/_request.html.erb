@@ -1,0 +1,34 @@
+<tr id="request_<%= request.id %>">
+  <td>
+    <%= request.book_title %>
+  </td>
+  <td>
+    <%= request.author %>
+  </td>
+  <td>
+    <%= request.user.name %>
+  </td>
+  <td>
+    <%= request.created_at.strftime Settings.date_format  %>
+  </td>
+  <% if request.cancel? %>
+    <td>
+      <span class="label label-default"><%= t "application.labels.cancel" %></span>
+    </td>
+    <td></td>
+  <% else %>
+    <%= form_for [:admin, request] do |f| %>
+      <td>
+        <%= f.select :status, @status_options, class: "form-control" %>
+      </td>
+      <td>
+        <%= f.submit t("application.buttons.update"), class: "btn btn-primary" %>
+      </td>
+    <% end %>
+  <% end %>
+  <td>
+    <%= link_to t("application.buttons.delete"), [:admin, request], class: "btn btn-danger btn-sm",
+      method: :delete, data: {confirm: t("application.messages.confirm")},
+      remote: true %>
+  </td>
+</tr>

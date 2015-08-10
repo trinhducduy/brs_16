@@ -14,6 +14,7 @@ en:
       send: "Send"
       favorites: "Favorites"
       search: "Search"
+      update: "Update"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -28,10 +29,14 @@ en:
       something_wrong: "Oops. Something wrong happens. Please try again later"
       edit_review_success: "Edit review successfully"
       write_review_success: "Create review successfully"
+      request_updated: "Request's status has been updated !"
+      request_updated_failed: "Failed to update request's status !"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
+    labels:
+      cancel: "Cancel"
   requests:
     general:
       request_new_book: "Request A New Book"
@@ -107,3 +112,11 @@ en:
         title: "Create book"
       edit:
         title: "Edit book"
+    requests:
+      index:
+        title: "All requests"
+        book_title: "Book Title"
+        author: "Author"
+        time: "Time"
+        status: "Status"
+        user: "Sent By"
