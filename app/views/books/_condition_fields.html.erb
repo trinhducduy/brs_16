@@ -1,0 +1,22 @@
+<div class="row field">
+  <div class="col-md-12">
+    <div class="col-md-3 col-sm-3">
+      <%= f.attribute_fields do |attribute| %>
+        <%= attribute.attribute_select nil, class: "form-control" %>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <%= f.predicate_select Hash.new, class: "form-control" %>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <%= f.value_fields do |value| %>
+        <%= value.text_field :value, class: "form-control" %>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <%= link_to "#", class: "remove_fields" do %>
+        <i class="glyphicon glyphicon-remove-sign"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

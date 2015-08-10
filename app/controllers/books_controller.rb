@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :load_book, only: [:show]
 
   def index
-    @categories = Category.all.includes :books
+    params[:type] == Settings.books.search ? search_books : list_books
   end
 
   def show
@@ -15,5 +15,16 @@ class BooksController < ApplicationController
   private
   def load_book
     @book = Book.find params[:id]
+  end
+
+  def list_books
+    @q.build_condition if @q.conditions.empty?
+    @categories = Category.all.includes :books
+    render "books/index"
+  end
+
+  def search_books
+    @books = @q.result distinct: true
+    render "books/search"
   end
 end

@@ -1,0 +1,13 @@
+<div class="col-md-12">
+  <h2><%= t "books.seach.advanced_search" %></h2>
+</div>
+<%= search_form_for @q do |f| %>
+  <%= hidden_field_tag :type, :search %>
+  <%= f.condition_fields do |c| %>
+    <%= render "books/condition_fields", f: c %>
+  <% end %>
+  <%= link_to_add_fields t("books.search.add_conditions"), f, :condition %>
+  <div class="col-md-12">
+    <%= f.submit t("application.buttons.search"), class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>
