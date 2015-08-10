@@ -20,4 +20,13 @@ module ApplicationHelper
       Settings.user_books.favored
     end
   end
+
+  def review_url book
+    review = book.reviews.find_by user_id: current_user.id
+    if review
+      edit_book_review_path book, review
+    else
+      new_book_review_path book
+    end
+  end
 end

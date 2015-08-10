@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :books, except: [:show]
   end
-  resources :books, only:[:index, :show]
+  resources :books, only:[:index, :show] do
+    resources :reviews, except: [:index, :show]
+  end
 end
