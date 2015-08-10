@@ -79,6 +79,15 @@ en:
       read: "Read"
       reading: "Reading"
       not_read: "Mark As"
+  activities:
+    general:
+      follow: "has followed %{target}"
+      followed: "has been followed by %{target}"
+      mark_as_read: "has marked %{target} as read"
+      mark_as_reading: "has marked %{target} as reading"
+      add_to_favorites: "has added %{target} to favorites"
+      review: "has made a review about %{target}"
+      comment: "has comment on a review of %{target}"
   admin:
     categories:
       new:
