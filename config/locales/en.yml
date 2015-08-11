@@ -40,9 +40,16 @@ en:
     labels:
       cancel: "Cancel"
   users:
+    general:
+      reading_history: "Reading History Of %{user}"
+      favorite_books: "All Favorite Books Of %{user}"
+    edit:
+      title: "Edit User Profile"
     show:
-      setting: "Account setting"
-      overview: "Overview"
+      setting: "User Profile"
+      timeline: "Timeline"
+      reading_history: "Reading History"
+      favorite_books: "Favorite Books"
   requests:
     general:
       request_new_book: "Request A New Book"
