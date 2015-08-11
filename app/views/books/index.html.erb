@@ -1,1 +1,12 @@
+<a id="advancedSearchToggle" href="#">
+  <i class="glyphicon glyphicon-plus-sign"></i>
+  <span class="text">
+    <%= t "books.search.show_advanced_search" %>
+  </span>
+</a>
+
+<div id="advancedSearch" class="row hide">
+  <%= render "books/advanced_search" %>
+</div>
+
 <%= render @categories %>

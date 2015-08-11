@@ -1,0 +1,15 @@
+<div class="search">
+  <div class="row">
+    <h1 class="pull-left search-count"><%= t "books.search.result_found",
+      count: @books.count %></h1>
+    <div class="sort-book pull-right">
+      <%= render "books/sort_links" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 block book-container">
+      <%= render @books %>
+    </div>
+  </div>
+</div>

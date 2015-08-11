@@ -20,4 +20,12 @@ class Book < ActiveRecord::Base
     errors.add :published_date,
       I18n.t("application.messages.wrong_date") if self.published_date.to_date > Date.today
   end
+
+  def self.ransackable_attributes auth_object = nil
+    if auth_object == :admin
+      super
+    else
+      super & %w(title author description published_date)
+    end
+  end
 end

@@ -74,3 +74,51 @@
     }
   }
 }
+
+.search {
+  .search-count {
+    margin: 0;
+  }
+  .sort-book {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: $gray-dark;
+    a {
+      color: $white;
+    }
+    .filter-label {
+      display: inline-block;
+      padding: 0 10px;
+    }
+  }
+}
+
+#book_search {
+  .form-control {
+    padding: 6px 12px;
+  }
+}
+
+#advancedSearch {
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  display: block;
+  padding: 10px 0;
+  .form-control {
+    border-radius: 0;
+  }
+}
+
+.add_fields {
+  margin: 5px 15px;
+  display: block;
+}
+
+.field {
+  margin: 5px -15px;
+  .remove_fields {
+    display: block;
+    margin-top: 8px;
+  }
+}

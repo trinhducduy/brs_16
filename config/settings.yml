@@ -7,3 +7,5 @@ user_books:
   reading: mark_reading
   favored: add_to_favorites
   unfavored: remove_from_favorites
+books:
+  search: search

@@ -13,6 +13,7 @@ en:
       close: "Close"
       send: "Send"
       favorites: "Favorites"
+      search: "Search"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -55,6 +56,15 @@ en:
       reset_password_instructions: "Send me reset password instructions"
       change_password: "Change password"
   books:
+    general:
+      search: "Search book"
+      title: "Title"
+      published_date: "Published Date"
+    search:
+      result_found: "%{count} results found"
+      advanced_search: "Advanced Search"
+      add_conditions: "Add Conditions"
+      show_advanced_search: "Show Advanced Search"
     show:
       review: "review"
       description: "Book Description"

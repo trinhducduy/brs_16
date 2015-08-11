@@ -9,6 +9,13 @@
       </button>
       <%= link_to t("application.general.title"), root_path, class: "navbar-brand" %>
     </div>
+
+    <%= search_form_for @q, class: "navbar-form navbar-left" do |f| %>
+      <%= hidden_field_tag :type, :search %>
+      <%= f.search_field :title_or_description_cont,
+        placeholder: t("books.general.search"), class: "form-control" %>
+    <% end %>
+
     <div class="navbar-collapse collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("application.general.about"), about_path %></li>
