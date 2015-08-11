@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "books#index"
   get "about", to: "static_pages#about"
 
-  resources :requests, only: [:new, :create]
+  resources :requests, only: [:new, :create, :update]
   resources :users, only: [:update, :edit, :show]
   resources :relationships, only: [:create, :destroy]
 
