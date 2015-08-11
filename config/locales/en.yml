@@ -16,7 +16,8 @@ en:
       favorites: "Favorites"
       search: "Search"
       update: "Update"
-    flash:
+      follow: "Follow"
+      unfollow: "Unfollow"
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
       category_created_failed: "Failed to create category"
@@ -38,6 +39,10 @@ en:
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
     labels:
       cancel: "Cancel"
+  users:
+    show:
+      setting: "Account setting"
+      overview: "Overview"
   requests:
     general:
       request_new_book: "Request A New Book"

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: "followed"
   has_many :followeds, through: :passive_relationships, source: "follower"
 
+  mount_uploader :avatar, AvatarUploader
+
   enum role: [:member, :admin]
 
   validates :name, presence: true, length: {minimum: 6}

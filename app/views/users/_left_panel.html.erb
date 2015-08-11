@@ -1,0 +1,30 @@
+<div class="profile-sidebar">
+  <div class="profile-userpic">
+    <%= image_tag @user.avatar.thumb.url, class: "img-responsive" %>
+  </div>
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name"><%= @user.name %></div>
+    <div class="profile-usertitle-job"><%= @user.email %></div>
+  </div>
+  <div class="profile-userbuttons">
+    <div id="relationship">
+      <%= render "relationship_form" %>
+    </div>
+  </div>
+  <div class="profile-usermenu">
+    <ul class="nav">
+      <li class="<%= "active" if action_name == "show" %>">
+        <%= link_to user_path(@user), class: "profile-link" do %>
+          <i class="glyphicon glyphicon-home"></i>
+          <%= t "users.show.overview" %>
+        <% end %>
+      </li>
+      <li class="<%= "active" if action_name == "edit" %>">
+        <%= link_to edit_user_path(@user), class: "profile-link" do %>
+          <i class="glyphicon glyphicon-user"></i>
+          <%= t "users.show.setting" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
