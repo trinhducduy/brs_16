@@ -3,6 +3,7 @@ en:
     general:
       title: "Book Review System"
       about: "About"
+      timeago: "%{time} ago"
     buttons:
       edit: "Edit"
       delete: "Delete"
@@ -81,6 +82,8 @@ en:
       read: "Read"
       reading: "Reading"
       not_read: "Mark As"
+    reviews:
+      edit_your_review: "Edit your review"
   activities:
     general:
       follow: "has followed %{target}"
@@ -90,8 +93,8 @@ en:
       add_to_favorites: "has added %{target} to favorites"
       review: "has made a review about %{target}"
       comment: "has comment on a review of %{target}"
-  reviews:
-      edit_your_review: "Edit your review"
+      title: "Activity Log"
+      load_more: "Load more"
   admin:
     categories:
       new:

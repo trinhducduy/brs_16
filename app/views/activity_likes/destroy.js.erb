@@ -1,0 +1,9 @@
+var activityContainer = $("#activity_<%= @activity.id %>");
+var activityLike = activityContainer.find(".likes");
+var likeCount = activityContainer.find(".like-count");
+
+activityLike.attr("data-method", "post");
+activityLike.data("method", "post");
+activityLike.html('<%= t "activities.general.like" %>');
+likeCount.text(parseInt(likeCount.text()) - 1);
+$("#flash").replaceWith('<%= j render "layouts/flash" %>');

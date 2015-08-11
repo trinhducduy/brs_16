@@ -1,0 +1,28 @@
+<div id="activity_<%= activity.id %>" class="activity-item">
+  <p>
+    <% if @user == current_user %>
+      <%= t "application.general.you" %>
+    <% else %>
+      <%= link_to activity.user.name, activity.user %>
+    <% end %>
+    <%= t "activities.general.#{activity.action_type}",
+      target: activity.target_name %>
+  </p>
+
+  <p>
+    <% unless activity.liked_users.include? current_user %>
+      <span><%= link_to t("activities.general.like"), activity_activity_like_path(activity),
+        method: :post, remote: true, class: "likes" %></span>
+    <% else %>
+      <span><%= link_to t("activities.general.unlike"), activity_activity_like_path(activity),
+        method: :delete, remote: true, class: "likes" %></span>
+    <% end %>
+    <span class="like-count">
+      <%= activity.liked_users.size %>
+    </span>
+    <i class="glyphicon glyphicon-heart"></i>
+    <span class="small pull-right">
+      <%= t "application.general.timeago", time: time_ago_in_words(activity.created_at) %>
+    </span>
+  </p>
+</div>

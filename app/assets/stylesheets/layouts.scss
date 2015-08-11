@@ -161,3 +161,12 @@ input[type="password"] {
     text-shadow: 1px 1px 0px $yellow-dark;
   }
 }
+
+.glyphicon-heart {
+  color: $red;
+}
+
+.activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid $gray-light;
+}

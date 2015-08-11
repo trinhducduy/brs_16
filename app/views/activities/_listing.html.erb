@@ -1,0 +1,14 @@
+<div class="activity">
+  <h2><%= t "activities.general.title" %></h2>
+  <div class="activity-list">
+    <%= render @activities %>
+  </div>
+
+  <% if @activities.next_page %>
+    <a id="load_more" href="#">
+      <%= t "activities.general.load_more" %>
+    </a>
+  <% end %>
+
+  <%= will_paginate @activities, class: "hide pagination" %>
+</div>

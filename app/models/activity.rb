@@ -1,6 +1,8 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
   has_many :activity_likes, dependent: :destroy
+  has_many :liked_users, through: :activity_likes,
+    class_name: "User", source: :user
 
   before_create :create_target_name
 
