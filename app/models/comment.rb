@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  include Loggable
+
   belongs_to :user
   belongs_to :review
 
