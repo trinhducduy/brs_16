@@ -9,3 +9,11 @@ user_books:
   unfavored: remove_from_favorites
 books:
   search: search
+activities:
+  read: mark_as_read
+  reading: mark_as_reading
+  favored: add_to_favorites
+  follow: follow
+  followed: followed
+  review: review
+  comment: comment
