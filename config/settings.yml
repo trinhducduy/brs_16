@@ -25,3 +25,5 @@ users:
   timeline: timeline
   edit: "edit"
   requests: "requests"
+  avatar:
+    size: 30x30

@@ -42,6 +42,15 @@ h1, h2, h3, h4, h5 {
       color: $gray-light  !important;
     }
   }
+  .dropdown-menu {
+    a {
+      color: $gray-dark !important;
+    }
+  }
+  .profile-picture {
+    background: transparent !important;
+    padding: 8px;
+  }
   #requestBook {
     &:hover, &:focus {
       background: $brand-primary;

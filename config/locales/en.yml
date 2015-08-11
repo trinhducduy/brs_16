@@ -18,6 +18,7 @@ en:
       update: "Update"
       follow: "Follow"
       unfollow: "Unfollow"
+    flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
       category_created_failed: "Failed to create category"
@@ -31,6 +32,7 @@ en:
       something_wrong: "Oops. Something wrong happens. Please try again later"
       edit_review_success: "Edit review successfully"
       write_review_success: "Create review successfully"
+      request_sent: "Request has been sent successfully !"
       request_updated: "Request's status has been updated !"
       request_updated_failed: "Failed to update request's status !"
     messages:
