@@ -24,6 +24,13 @@ $(document).on("page:change", function(){
   $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
   $(".book-item .flip").flip({trigger: "hover", speed: 700});
 
+  $("#load_more").click(function(e){
+    e.preventDefault();
+    var url = $(".pagination .next_page").attr("href");
+
+    $.getScript(url);
+  });
+
   $("#requestBook").on("click", function(e){
     e.preventDefault();
     var modal = $("#brsModal");

@@ -1,5 +1,7 @@
 pagination:
-  page_size: 1
+  page_size: 10
+  activity_log:
+    page_size: 5
 date_format: "%d-%m-%Y"
 user_books:
   unread: mark_unread

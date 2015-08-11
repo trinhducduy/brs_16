@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   resources :requests, only: [:new, :create]
-  resources :books, only: [:index, :show, :update] do
+  resources :books, only: [:index, :show] do
     resource :user_book, only: [:create, :update]
+    resources :reviews, except: [:index, :show]
+  end
+
+  resources :activities, only: [] do
+    resource :activity_like, only: [:create, :destroy]
   end
 
   namespace :admin do
@@ -14,8 +19,5 @@ Rails.application.routes.draw do
     resources :categories
     resources :books, except: [:show]
     resources :requests, only: [:index, :update, :destroy]
-  end
-  resources :books, only:[:index, :show] do
-    resources :reviews, except: [:index, :show]
   end
 end
