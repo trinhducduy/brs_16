@@ -4,10 +4,12 @@
 @import "books";
 @import "jquery-ui/datepicker";
 @import "bootsy";
+@import "jquery-bar-rating/dist/themes/bootstrap-stars";
 
 .alert-alert {
   @extend .alert-warning;
 }
+
 .btn {
   &.add_to_favorites {
     @extend .btn-primary;

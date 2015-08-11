@@ -14,7 +14,8 @@
   <ul class="dropdown-menu">
     <li class='<%= "hide" if @user_book.status == "read" %>'>
       <%= link_to book_user_book_path(@book), class: "book-marker",
-        data: {action: "mark_read"} do %>
+        data: {action: "mark_read", review_url: review_url(@book),
+          modal_title: t("user_books.reviews.edit_your_review")} do %>
         <%= t "user_books.general.read" %>
       <% end %>
     </li>

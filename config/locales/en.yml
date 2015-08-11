@@ -26,6 +26,8 @@ en:
       delete_book_success: "Delete book successfully"
       delete_book_failed: "Delete book failed"
       something_wrong: "Oops. Something wrong happens. Please try again later"
+      edit_review_success: "Edit review successfully"
+      write_review_success: "Create review successfully"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
@@ -88,6 +90,8 @@ en:
       add_to_favorites: "has added %{target} to favorites"
       review: "has made a review about %{target}"
       comment: "has comment on a review of %{target}"
+  reviews:
+      edit_your_review: "Edit your review"
   admin:
     categories:
       new:

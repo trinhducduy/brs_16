@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require jquery-ui/datepicker
 //= require flip/dist/jquery.flip
+//= require jquery-bar-rating/jquery.barrating
 //= require_tree .
 
 $(document).on("page:change", function(){
@@ -56,6 +57,34 @@ $(document).on("page:change", function(){
     }, "json");
   });
 
+  $("#brsModal").on("submit", ".reviews-form", function(e){
+    e.preventDefault();
+
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    var modal = $("#brsModal");
+    var reviewUrl = $(".book-marker[data-action='mark_read']").attr("data-review-url");
+
+    $.post(url, data, function(response){
+      if (response.status == "success") {
+        var message = getFlashMessage(response.message, "success");
+
+        if (reviewUrl.indexOf("edit") == -1) {
+          reviewUrl = reviewUrl.replace("new",response.data.review.id + "/edit");
+          $(".book-marker[data-action='mark_read']").attr("data-review-url", reviewUrl);
+        }
+
+        updateRating(response.data.rating);
+        modal.modal("hide");
+        $("#flash").empty().append(message);
+      } else {
+        var errors = getFormErrors(response.data);
+
+        modal.find(".modal-body > .errors").empty().prepend(errors);
+      }
+    }, "json");
+  });
+
   $(".form-group input[type='file']").change(function(event) {
     var preview = $("#preview_cover");
     var input = $(event.currentTarget);
@@ -69,13 +98,18 @@ $(document).on("page:change", function(){
     reader.readAsDataURL(file);
   });
 
-  $(".book-detail").on("click", ".book-marker, .btn-favorites, .tick", function(e){
+  $(".book-detail").on("click", ".book-marker, .btn-favorites", function(e){
     e.preventDefault();
     var actionType = $(this).data("action");
     var url = $(this).attr("href");
+    var currentElement = $(this);
+
     $.post(url, {action_type: actionType}, function(response){
       if (response.status == "success") {
-        updateUserBook(response.data)
+        updateUserBook(response.data);
+        if (response.data.status == "read" && currentElement.is(".book-marker")) {
+          postReview(currentElement);
+        }
       } else {
         var message = getFlashMessage(response.message, "danger");
         $("#flash").append(message);
@@ -95,6 +129,33 @@ function getFormErrors(errors) {
     wrapper.append("<li>" + errors[i] + "</li>");
   }
   return wrapper;
+}
+
+function updateRating(rating) {
+  var ratingPanel = $(".book-detail").find(".rating");
+
+  ratingPanel.find("i").each(function(index){
+    if (index + 1 <= rating) {
+      $(this).addClass("active");
+    } else {
+      $(this).removeClass("active")
+    }
+  })
+}
+
+function postReview(element) {
+  var modal = $("#brsModal");
+  var url = element.attr("data-review-url");
+  var modalTitle = element.data("modalTitle");
+
+  $.get(url, {}).done(function(data) {
+    modal.find(".modal-body > .errors").empty();
+    modal.find(".modal-body > .content").empty().html(data);
+    updateRatingForm();
+  });
+
+  modal.find(".modal-title").text(modalTitle);
+  modal.modal("show");
 }
 
 function updateUserBook(userBook) {
@@ -122,4 +183,18 @@ function updateUserBook(userBook) {
     favorites.data("action", "add_to_favorites");
     favorites.find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
   }
+}
+
+function updateRatingForm() {
+  var ratingField = $("#brsModal").find("#rating");
+  var rating = ratingField.val();
+  var ratingContainer = $("#brsModal").find("#rate-stars");
+
+  ratingContainer.barrating({
+    theme: "bootstrap-stars",
+    initialRating: rating,
+    onSelect: function(value, text) {
+      ratingField.attr("value", value)
+    }
+  });
 }

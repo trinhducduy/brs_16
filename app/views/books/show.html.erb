@@ -14,7 +14,7 @@
     <div class="col-md-9 description">
       <h1 class="title"><%= @book.title %></h1>
       <p class="author"><%= t ".by" %> <%= @book.author %></p>
-      <p>
+      <p class="rating">
         <%= render "shared/rating", rating: @book.average_rating %>
         <span><%= pluralize @book.reviews.count, t(".review") %></span>
       </p>
