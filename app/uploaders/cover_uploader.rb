@@ -11,6 +11,10 @@ class CoverUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def default_url
+    ActionController::Base.helpers.asset_path("book-cover-default.png")
+  end
+
   version :thumb do
     process resize_to_fill: [250, 400]
   end

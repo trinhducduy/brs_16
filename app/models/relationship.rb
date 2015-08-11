@@ -6,7 +6,7 @@ class Relationship < ActiveRecord::Base
 
   validates :follower_id, uniqueness: {scope: :followed_id}
 
-  before_create :create_activity_log
+  after_create :create_relationship_log
 
   private
   def create_relationship_log
