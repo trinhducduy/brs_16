@@ -1,0 +1,23 @@
+<div class="media comment" id="comment_<%= comment.id %>">
+  <div class="media-left">
+    <%= link_to user_path(comment.user), class: "pull-left" do %>
+      <%= image_tag comment.user.avatar.thumb.url,
+        size: Settings.image.avatar, class: "media-object" %>
+    <% end %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to comment.user.name, user_path(comment.user) %>
+      <small>
+        <%= time_ago_in_words comment.updated_at %> <%= t "application.messages.ago" %>
+      </small>
+      <% if current_user == comment.user %>
+        <%= link_to comment_path(comment),
+          method: :delete, remote: true do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      <% end %>
+    </h4>
+    <p><%= comment.content %></p>
+  </div>
+</div>

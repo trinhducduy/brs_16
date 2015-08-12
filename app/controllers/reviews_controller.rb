@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :load_book, only: [:new, :create, :edit, :update]
   before_action :load_review, except: [:new, :create]
 
@@ -46,6 +46,18 @@ class ReviewsController < ApplicationController
         format.json {render json: {status: "failed",
           data: @review.errors.full_messages}}
       end
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      flash[:success] = t "application.flash.delete_comment_success"
+    else
+      flash[:danger] = t "application.flash.delete_review_failed"
+    end
+    respond_to do |format|
+      format.html{redirect_to @review.book}
+      format.js
     end
   end
 

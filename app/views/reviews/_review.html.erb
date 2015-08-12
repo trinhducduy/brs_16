@@ -1,0 +1,31 @@
+<li class="media" id="review_<%= review.id %>">
+  <div class="media-left">
+    <%= link_to user_path(review.user), class: "pull-left" do %>
+      <%= image_tag review.user.avatar.thumb.url, size: Settings.image.avatar, class: "media-object" %>
+    <% end %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to review.user.name, user_path(review.user) %>
+      <small>
+        <%= time_ago_in_words review.updated_at %> <%= t "application.messages.ago" %>
+      </small>
+      <% if current_user == review.user %>
+        <%= link_to book_review_path(@book, review), method: :delete, remote: true do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+      <% end %>
+    </h4>
+    <p><%= render "shared/rating", rating: review.rating %></p>
+    <p><%= review.content %></p>
+    <div id="comments_<%= review.id %>">
+      <% review.comments.lastest.each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= render "comments/comment_form", review: review %>
+      <% end %>
+    </div>
+  </div>
+  <hr/>
+</li>

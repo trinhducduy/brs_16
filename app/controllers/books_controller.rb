@@ -10,6 +10,8 @@ class BooksController < ApplicationController
       @user_book = UserBook.find_or_initialize_by user_id: current_user.id,
         book_id: @book.id
     end
+    @reviews = @book.reviews.paginate page: params[:page],
+      per_page: Settings.pagination.page_size
   end
 
   private

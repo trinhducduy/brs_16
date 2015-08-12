@@ -39,6 +39,14 @@
         <div class="col-md-3"><%= t ".pages" %></div>
         <div class="col-md-9"><strong><%= @book.number_of_page %></strong></div>
       </div>
+      <hr/>
+      <div id="reviews-list">
+        <h4><%= t ".Review" %>(<span class="review-counting"><%= @reviews.size %></span>)</h4>
+        <ul class="media-list">
+          <%= render @reviews %>
+          <%= will_paginate @reviews %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+$("#review_<%= @review.id %>").remove();
+$("#flash").replaceWith('<%= j render "layouts/flash" %>');
+$(".review-counting").html("<%= @review.book.reviews.size %>");
+
+var reviewUrl = $(".book-marker[data-action='mark_read']").attr("data-review-url");
+
+reviewUrl = reviewUrl.replace(/\d+\/edit/, "new");
+$(".book-marker[data-action='mark_read']").attr("data-review-url", reviewUrl);

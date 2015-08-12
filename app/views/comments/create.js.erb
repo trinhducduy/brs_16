@@ -1,0 +1,7 @@
+<% unless @comment.errors.any? %>
+  $("#comments_<%= @review.id %>")
+    .prepend('<%= escape_javascript(render "comments/comment", comment: @comment) %>');
+  $("#comment_content_<%= @review.id %>").val("");
+<% else %>
+  $("#flash").replaceWith('<%= j render "layouts/flash" %>');
+<% end %>

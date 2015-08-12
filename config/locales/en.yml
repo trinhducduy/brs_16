@@ -37,10 +37,17 @@ en:
       request_updated: "Request's status has been updated !"
       request_updated_failed: "Failed to update request's status !"
       delete_user_failed: "Delete user failed!"
+      delete_review_success: "Delete review successfully"
+      delete_review_failed: "Delete review failed"
+      create_comment_failed: "Cannot commnet"
+      create_comment_success: "Comment successfully"
+      delete_comment_failed: "Delete comment failed"
+      delete_comment_success: "Delete comment successfully"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
+      ago: "ago"
     labels:
       cancel: "Cancel"
       pending: "Pending"
@@ -112,6 +119,8 @@ en:
       author: "Author"
       time: "Time"
       status: "Status"
+      Review: "Review"
+      leave_comment: "Leave Comment"
   user_books:
     general:
       mark_this_book_as: "Mark As"
