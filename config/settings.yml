@@ -29,3 +29,5 @@ users:
     size: 30x30
 text:
   length: 30
+image:
+  avatar: "50x50"

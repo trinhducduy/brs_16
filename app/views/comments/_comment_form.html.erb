@@ -1,0 +1,9 @@
+<h4><%= t "books.show.leave_comment" %></h4>
+<%= form_for review.comments.build, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.hidden_field :review_id, value: review.id %>
+    <%= f.text_area :content, rows: 3,
+      class: "form-control", required: true, id: "comment_content_#{review.id}" %>
+  </div>
+  <%= f.submit t("application.buttons.send"), class: "btn btn-primary" %>
+<% end %>
