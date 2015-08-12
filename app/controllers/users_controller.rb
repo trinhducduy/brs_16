@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   before_action :load_user, only: [:edit, :show, :update]
 
   def show
@@ -36,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def timeline
-    @activities = current_user.activities.includes(:liked_users).paginate page: params[:page],
+    @activities = @user.activities.includes(:liked_users).paginate page: params[:page],
       per_page: Settings.pagination.activity_log.page_size
     respond_to do |format|
       format.html {render "users/timeline"}
@@ -45,12 +44,12 @@ class UsersController < ApplicationController
   end
 
   def list_favorite_books
-    @books = Book.favored_by current_user
+    @books = Book.favored_by @user
     render "users/favorite_books"
   end
 
   def list_reading_history
-    @books = Book.read_by current_user
+    @books = Book.read_by @user
     render "users/reading_history"
   end
 

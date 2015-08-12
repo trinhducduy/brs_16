@@ -12,14 +12,26 @@
             <h1>
               <%= t "books.show.title" %>
             </h1>
-            <table class="table table-striped">
+            <table class="table table-striped" id="requestList">
               <tr>
                 <th><%= t "books.show.book_title" %></th>
                 <th><%= t "books.show.author" %></th>
                 <th><%= t "books.show.time" %></th>
                 <th><%= t "books.show.status" %></th>
                 <th></th>
-                <th></th>
+              </tr>
+              <tr class="request hide">
+                <td class="title"></td>
+                <td class="author"></td>
+                <td class="time"></td>
+                <td>
+                  <span class="label label-success status"></span>
+                </td>
+                <td>
+                  <%= link_to t("application.labels.cancel"), requests_path,
+                    class: "btn btn-danger", method: :patch, remote: true,
+                    data: {confirm: t("application.messages.confirm")} %>
+                </td>
               </tr>
               <%= render @requests %>
             </table>

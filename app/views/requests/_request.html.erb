@@ -16,7 +16,7 @@
   </td>
   <td>
     <% unless request.cancel? %>
-      <%= link_to t("application.labels.cancel"), request_path(request),
+      <%= link_to t("application.labels.cancel"), requests_path(request),
         class: "btn btn-danger action_#{request.id}", method: :patch, remote: true,
         data: {confirm: t("application.messages.confirm")} %>
     <% end %>
