@@ -8,6 +8,8 @@ class UsersController < ApplicationController
       list_reading_history
     when Settings.users.favorite_books
       list_favorite_books
+    when Settings.users.requests
+      list_user_requests
     else
       timeline
     end
@@ -50,5 +52,11 @@ class UsersController < ApplicationController
   def list_reading_history
     @books = Book.read_by current_user
     render "users/reading_history"
+  end
+
+  def list_user_requests
+    @requests = @user.requests.latest.paginate page: params[:page],
+      per_page: Settings.pagination.page_size
+    render "users/requests"
   end
 end

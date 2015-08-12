@@ -33,12 +33,23 @@
           <%= t "users.show.favorite_books" %>
         <% end %>
       </li>
-      <li class="<%= "active" if action_name == "edit" %>">
-        <%= link_to edit_user_path(@user), class: "profile-link" do %>
-          <i class="glyphicon glyphicon-user"></i>
-          <%= t "users.show.setting" %>
-        <% end %>
-      </li>
+      <% if current_user == @user %>
+        <li class="<%= "active" if action_name == "edit" %>">
+          <%= link_to edit_user_path(@user), class: "profile-link" do %>
+            <i class="glyphicon glyphicon-user"></i>
+            <%= t "users.show.setting" %>
+          <% end %>
+        </li>
+      <% end %>
+      <% unless current_user.admin? %>
+        <li class="<%= "active" if @type == Settings.users.requests %>">
+          <%= link_to user_path(@user, type: "requests"),
+            class: "profile-link" do %>
+            <i class="glyphicon glyphicon-th"></i>
+            <%= t "users.show.requests" %>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

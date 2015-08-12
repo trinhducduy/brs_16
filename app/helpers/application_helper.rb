@@ -29,4 +29,8 @@ module ApplicationHelper
       new_book_review_path book
     end
   end
+
+  def current_user? user
+    current_user == user
+  end
 end

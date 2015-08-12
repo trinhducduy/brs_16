@@ -54,11 +54,14 @@ $(document).on("page:change", function(){
 
     $.post(url, data, function(response){
       if (response.status == "success") {
-        modal.modal("hide");
         var message = getFlashMessage(response.message, "success");
+        var newRequest = response.data;
+
+        modal.modal("hide");
         $("#flash").append(message);
       } else {
         var errors = getFormErrors(response.data);
+
         modal.find(".modal-body > .errors").empty().prepend(errors);
       }
     }, "json");

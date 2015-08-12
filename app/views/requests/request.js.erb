@@ -1,0 +1,3 @@
+$("#requestStatus_<%= @request.id %>").html('<%= t "application.labels.#{@request.status}" %>');
+$("#requestStatus_<%= @request.id %>").removeClass("label-success").addClass("label-default");
+$(".action_<%= @request.id %>").remove();

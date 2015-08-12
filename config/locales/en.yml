@@ -39,6 +39,9 @@ en:
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
     labels:
       cancel: "Cancel"
+      pending: "Pending"
+      reject: "Reject"
+      resolved: "Resolved"
   users:
     general:
       reading_history: "Reading History Of %{user}"
@@ -93,6 +96,11 @@ en:
       published_date: "Published Date"
       category: "Category"
       by: "By"
+      tilte: "All requests of user"
+      book_title: "Book title"
+      author: "Author"
+      time: "Time"
+      status: "Status"
   user_books:
     general:
       mark_this_book_as: "Mark As"

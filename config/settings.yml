@@ -23,3 +23,5 @@ users:
   favorite_books: favorite_books
   reading_history: reading_history
   timeline: timeline
+  edit: "edit"
+  requests: "requests"
