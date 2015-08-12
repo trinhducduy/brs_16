@@ -18,6 +18,7 @@ en:
       update: "Update"
       follow: "Follow"
       unfollow: "Unfollow"
+      new_book: "New Book"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -35,6 +36,7 @@ en:
       request_sent: "Request has been sent successfully !"
       request_updated: "Request's status has been updated !"
       request_updated_failed: "Failed to update request's status !"
+      delete_user_failed: "Delete user failed!"
     messages:
       confirm: "Are you sure ?"
       wrong_date: "can't be in the future"
@@ -90,6 +92,13 @@ en:
       advanced_search: "Advanced Search"
       add_conditions: "Add Conditions"
       show_advanced_search: "Show Advanced Search"
+    index:
+      title: "List all book"
+      author: "Author"
+      published_date: "Published date"
+      category: "Category"
+      number_of_page: "Pages"
+      description: "Description"
     show:
       review: "review"
       description: "Book Description"

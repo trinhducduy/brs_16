@@ -1,6 +1,11 @@
 class Admin::BooksController < Admin::BaseController
   before_action :load_book, only: [:edit, :update, :destroy]
 
+  def index
+    @books = Book.all.paginate page: params[:page],
+     per_page: Settings.pagination.page_size
+  end
+
   def new
     @book = Book.new
   end
@@ -33,7 +38,10 @@ class Admin::BooksController < Admin::BaseController
     else
       flash[:danger] = t "application.flash.delete_book_failed"
     end
-    redirect_to :back
+    respond_to do |format|
+      format.html{redirect_to admin_books_path}
+      format.js
+    end
   end
 
   private
