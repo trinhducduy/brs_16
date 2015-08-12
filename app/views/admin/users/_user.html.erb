@@ -1,0 +1,8 @@
+<tr id="user_<%= user.id %>">
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td>
+    <%= link_to t("application.buttons.delete"), admin_user_path(user),
+      method: :delete, remote: true, class: "btn btn-danger", data: {confirm: t("application.messages.confirm")} %>
+  </td>
+</tr>

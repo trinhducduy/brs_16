@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12 block">
+    <h1>
+      <%= t ".title" %>
+      <span>
+      <%= link_to t("application.buttons.new_book"),
+        new_admin_book_path, class: "btn btn-success" %>
+    </span>
+    </h1>
+
+    <table class="table table-striped">
+      <tr>
+        <th><%= t ".title" %></th>
+        <th><%= t ".author" %></th>
+        <th><%= t ".published_date" %></th>
+        <th><%= t ".category" %></th>
+        <th><%= t ".number_of_page" %></th>
+        <th><%= t ".description" %></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <%= render @books %>
+    </table>
+
+    <%= will_paginate %>
+  </div>
+</div>

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     root "books#index"
     resources :categories
     resources :books, except: [:show]
+    resources :users, only: [:index, :destroy]
     resources :requests, only: [:index, :update, :destroy]
   end
 end

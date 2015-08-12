@@ -27,3 +27,5 @@ users:
   requests: "requests"
   avatar:
     size: 30x30
+text:
+  length: 30

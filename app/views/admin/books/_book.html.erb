@@ -1,0 +1,17 @@
+<tr id="book_<%= book.id %>">
+  <td>
+    <%= link_to book.title, book_path(book) %>
+  </td>
+  <td><%= book.author %></td>
+  <td><%= book.published_date %></td>
+  <td><%= book.category.name %></td>
+  <td><%= book.number_of_page %></td>
+  <td><%= book.description.truncate Settings.text.length %></td>
+  <td>
+    <%= link_to t("application.buttons.edit"), edit_admin_book_path(book), class: "btn btn-primary" %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.delete"), admin_book_path(book),
+      method: :delete, remote: true, class: "btn btn-danger", data: {confirm: t("application.messages.confirm")} %>
+  </td>
+</tr>
