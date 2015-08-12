@@ -15,6 +15,11 @@ class Book < ActiveRecord::Base
   validates :category, presence: true
   validate :published_date_must_be_less_than_today
 
+  scope :read_by, ->user{joins(:user_books).where("user_books.user_id = ? AND
+    user_books.status = ?", user.id, UserBook.statuses[:read])}
+  scope :favored_by, ->user{joins(:user_books).where("user_books.user_id = ?
+    AND user_books.favored = ?", user.id, true)}
+
   private
   def published_date_must_be_less_than_today
     errors.add :published_date,

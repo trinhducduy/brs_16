@@ -19,3 +19,9 @@
     @extend .btn-danger;
   }
 }
+
+.profile .book-container {
+  .col-md-2 {
+    @extend .col-md-3;
+  }
+}

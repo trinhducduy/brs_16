@@ -13,10 +13,24 @@
   </div>
   <div class="profile-usermenu">
     <ul class="nav">
-      <li class="<%= "active" if action_name == "show" %>">
+      <li class="<%= "active" if @type == Settings.users.timeline %>">
         <%= link_to user_path(@user), class: "profile-link" do %>
           <i class="glyphicon glyphicon-home"></i>
-          <%= t "users.show.overview" %>
+          <%= t "users.show.timeline" %>
+        <% end %>
+      </li>
+      <li class="<%= "active" if @type == Settings.users.reading_history %>">
+        <%= link_to user_path(@user, type: Settings.users.reading_history),
+          class: "profile-link" do %>
+          <i class="glyphicon glyphicon-book"></i>
+          <%= t "users.show.reading_history" %>
+        <% end %>
+      </li>
+      <li class="<%= "active" if @type == Settings.users.favorite_books %>">
+        <%= link_to user_path(@user, type: Settings.users.favorite_books),
+          class: "profile-link" do %>
+          <i class="glyphicon glyphicon-star"></i>
+          <%= t "users.show.favorite_books" %>
         <% end %>
       </li>
       <li class="<%= "active" if action_name == "edit" %>">

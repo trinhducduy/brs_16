@@ -19,3 +19,7 @@ activities:
   followed: followed
   review: review
   comment: comment
+users:
+  favorite_books: favorite_books
+  reading_history: reading_history
+  timeline: timeline
