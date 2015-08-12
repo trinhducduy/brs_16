@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :load_book, only: [:new, :create, :edit, :update]
   before_action :load_review, except: [:new, :create]
+
   layout false
 
   def new
