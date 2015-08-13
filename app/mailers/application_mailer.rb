@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "duytd.test@gmail.com"
+  default from: "admin@brs16.framgia.com"
   layout "mailer"
 end

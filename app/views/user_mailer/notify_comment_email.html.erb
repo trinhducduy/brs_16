@@ -1,0 +1,6 @@
+<h1><% @user.name %>. You have a new notification</h1>
+<p>Book <%= link_to @book.title, @book %> has a new comment:</p>
+<p>
+  <span><%= link_to @comment.user.name, @comment.user %>:</span>
+  <%= @comment.content %>
+</p>
