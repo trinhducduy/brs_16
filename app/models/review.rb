@@ -11,6 +11,8 @@ class Review < ActiveRecord::Base
   validates :content, presence: true
   validates :user_id, uniqueness: {scope: :book_id}
 
+  after_create :inform_new_review
+
   private
   def create_review_log
     create_activity_log user_id, book_id, Settings.activities.review
@@ -20,5 +22,12 @@ class Review < ActiveRecord::Base
     reviews = book.reviews
     sum = reviews.map{|review| review[:rating]}.reduce(:+)
     book.update_attributes average_rating: (sum / reviews.size)
+  end
+
+  def inform_new_review
+    users = User.has_reviewed_or_commented_on book, user
+    users.each do |user|
+      UserMailer.notify_review_email(user, book, self).deliver
+    end
   end
 end

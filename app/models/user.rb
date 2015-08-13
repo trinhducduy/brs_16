@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
   enum role: [:member, :admin]
 
   validates :name, presence: true, length: {minimum: 6}
+
+  scope :has_reviewed_or_commented_on, ->book, user{joins(:comments)
+    .joins("JOIN reviews ON comments.review_id = reviews.id OR reviews.user_id = users.id")
+    .where("reviews.book_id = ? AND users.id != ?", book.id, user.id).distinct}
 end

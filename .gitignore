@@ -27,3 +27,4 @@ config/environments/*.local.yml
 /vendor/assets/bower.json
 .DS_Store
 /.idea
+/config/application.yml

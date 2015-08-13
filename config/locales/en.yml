@@ -2,6 +2,10 @@ en:
   user_mailer:
     notify_accept_book_request:
       subject: "Accepted your book request"
+    notify_review_email:
+      subject: "New review of %{book}"
+    notify_comment_email:
+      subject: "New comment on %{book}"
   application:
     general:
       title: "Book Review System"
