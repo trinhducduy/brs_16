@@ -1,0 +1,8 @@
+<h3>Dear <%= @request.user.name %></h3>
+<p>
+  We accepted a your request:
+  <ul>
+    <li><strong>Title</strong>: <%= @request.book_title %></li>
+    <li><strong>Author</strong>: <%= @request.author %></li>
+  </ul>
+</p>

@@ -34,6 +34,7 @@ gem "mini_magick"
 gem "bower-rails", "~> 0.10.0"
 gem "ransack"
 gem "faker"
+gem "whenever", require: false
 
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"

@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :authenticate_user!, only: [:index, :destroy]
 
   def index
     @users = User.member.paginate page: params[:page],
