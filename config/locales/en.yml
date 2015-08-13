@@ -1,4 +1,7 @@
 en:
+  user_mailer:
+    notify_accept_book_request:
+      subject: "Accepted your book request"
   application:
     general:
       title: "Book Review System"
