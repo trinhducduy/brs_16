@@ -56,6 +56,7 @@ $(document).on("page:change", function(){
       if (response.status == "success") {
         var message = getFlashMessage(response.message, "success");
         var newRequest = response.data;
+        updateNewRequest(newRequest);
 
         modal.modal("hide");
         $("#flash").append(message);
@@ -86,6 +87,7 @@ $(document).on("page:change", function(){
 
         updateRating(response.data.rating);
         modal.modal("hide");
+        window.location = window.location.href;
         $("#flash").empty().append(message);
       } else {
         var errors = getFormErrors(response.data);
@@ -151,6 +153,25 @@ function updateRating(rating) {
       $(this).removeClass("active")
     }
   })
+}
+
+function updateNewRequest(request) {
+  var requestContainer = $("#requestList");
+  var temp = requestContainer.find(".request").first().clone();
+  var url = temp.find(".btn").attr("href");
+  var date = new Date(request.created_at);
+  var dateStr = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
+  temp.attr("id", "request_" + request.id);
+  temp.find(".title").text(request.book_title);
+  temp.find(".author").text(request.author);
+  temp.find(".time").text(dateStr);
+  temp.find(".status").text(request.status)
+    .attr("id", "requestStatus_" + request.id);
+  temp.find(".btn").attr("href",url + "/" + request.id)
+    .addClass("action_" + request.id);
+  temp.removeClass("hide");
+  requestContainer.append(temp);
 }
 
 function postReview(element) {

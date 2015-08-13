@@ -1,3 +1,3 @@
-<% provide :heading, t("users.general.favorite_books", user: current_user.name) %>
+<% provide :heading, t("users.general.favorite_books", user: @user.name) %>
 
 <%= render "book_listing.html.erb" %>
