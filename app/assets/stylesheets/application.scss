@@ -1,5 +1,11 @@
+$nprogress-color: #d9534f;
+$nprogress-height: 2px;
+$nprogress-zindex: 10100;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "nprogress";
+@import "nprogress-bootstrap";
 @import "layouts";
 @import "books";
 @import "jquery-ui/datepicker";
@@ -9,6 +15,10 @@
 
 .alert-alert {
   @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-success;
 }
 
 .btn {

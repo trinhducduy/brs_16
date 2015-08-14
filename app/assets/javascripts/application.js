@@ -15,6 +15,8 @@
 //= require bootsy
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require nprogress
+//= require nprogress-turbolinks
 //= require jquery-ui/datepicker
 //= require flip/dist/jquery.flip
 //= require jquery-bar-rating/jquery.barrating

@@ -27,7 +27,7 @@ class Review < ActiveRecord::Base
   def inform_new_review
     users = User.has_reviewed_or_commented_on book, user
     users.each do |user|
-      UserMailer.notify_review_email(user, book, self).deliver
+      UserMailer.delay.notify_review_email user, book, self
     end
   end
 end

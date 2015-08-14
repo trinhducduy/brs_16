@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "2.2.1"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.3"
 # Use SCSS for stylesheets
@@ -37,6 +39,7 @@ gem "faker"
 gem "whenever", require: false
 gem "sidekiq"
 gem "figaro"
+gem "nprogress-rails"
 
 # Use ActiveModel has_secure_password
 # gem "bcrypt", "~> 3.1.7"

@@ -10,12 +10,14 @@
   </p>
 
   <p>
-    <% unless activity.liked_users.include? current_user %>
-      <span><%= link_to t("activities.general.like"), activity_activity_like_path(activity),
-        method: :post, remote: true, class: "likes" %></span>
-    <% else %>
-      <span><%= link_to t("activities.general.unlike"), activity_activity_like_path(activity),
-        method: :delete, remote: true, class: "likes" %></span>
+    <% if user_signed_in? %>
+      <% unless activity.liked_users.include? current_user %>
+        <span><%= link_to t("activities.general.like"), activity_activity_like_path(activity),
+          method: :post, remote: true, class: "likes" %></span>
+      <% else %>
+        <span><%= link_to t("activities.general.unlike"), activity_activity_like_path(activity),
+          method: :delete, remote: true, class: "likes" %></span>
+      <% end %>
     <% end %>
     <span class="like-count">
       <%= activity.liked_users.size %>

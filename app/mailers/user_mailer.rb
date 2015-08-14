@@ -3,6 +3,7 @@ class UserMailer < ApplicationMailer
     @request = request
     puts @request.user.email
     mail to: @request.user.email, subject: default_i18n_subject
+  end
 
   def notify_review_email user, book, review
     @user = user
