@@ -1,6 +1,16 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
+  def index
+    load_review
+    @comments = @review.comments.paginate page: params[:page],
+      per_page: Settings.pagination.comment_size
+    respond_to do |format|
+      format.html{redirect_to @review.book}
+      format.js
+    end
+  end
+
   def create
     @comment = current_user.comments.build comment_params
     if @comment.save
@@ -31,5 +41,9 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit :content, :review_id
+  end
+
+  def load_review
+    @review = Review.find params[:review_id]
   end
 end

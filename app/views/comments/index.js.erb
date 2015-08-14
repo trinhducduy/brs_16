@@ -1,0 +1,11 @@
+var container = $("#comments_<%= @review.id %>");
+container.find(".counting_comments").remove();
+container.find(".comment_list").append("<%= j render @comments %>");
+<% if @comments.next_page %>
+  container.find(".pagination").replaceWith('<%= j will_paginate @comments,
+    class: "hide pagination" %>');
+  container.find(".load_more").removeClass("hide");
+<% else %>
+  container.find(".load_more").remove();
+  container.find(".pagination").remove();
+<% end %>

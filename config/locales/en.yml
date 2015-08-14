@@ -55,6 +55,7 @@ en:
       wrong_date: "can't be in the future"
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
       ago: "ago"
+      comment: "comment"
     labels:
       cancel: "Cancel"
       pending: "Pending"

@@ -19,12 +19,16 @@
     <p><%= render "shared/rating", rating: review.rating %></p>
     <p><%= review.content %></p>
     <div id="comments_<%= review.id %>">
-      <% review.comments.lastest.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
-      <% if user_signed_in? %>
+      <div class="comment_list"></div>
+      <%= link_to pluralize(review.comments.size, t("application.messages.comment")),
+        comments_path(review_id: review.id), remote: true, class: "counting_comments" %>
+        <% if review.comments.size > 0 %>
+          <a class="load_more hide" href="#">
+            <%= t "activities.general.load_more" %>
+            <div class="pagination hide"></div>
+          </a>
+        <% end %>
         <%= render "comments/comment_form", review: review %>
-      <% end %>
     </div>
   </div>
   <hr/>

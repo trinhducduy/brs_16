@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:new, :create, :update]
   resources :users, only: [:update, :edit, :show]
   resources :relationships, only: [:create, :destroy]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy, :index]
 
   resources :books, only: [:index, :show] do
     resource :user_book, only: [:create, :update]
