@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require nprogress
 //= require nprogress-turbolinks
+//= require nprogress-ajax
 //= require jquery-ui/datepicker
 //= require flip/dist/jquery.flip
 //= require jquery-bar-rating/jquery.barrating
@@ -26,10 +27,9 @@ $(document).on("page:change", function(){
   $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
   $(".book-item .flip").flip({trigger: "hover", speed: 700});
 
-  $("#load_more").click(function(e){
+  $(".load_more").click(function(e){
     e.preventDefault();
-    var url = $(".pagination .next_page").attr("href");
-
+    var url = $(this).find(".pagination .next_page").attr("href");
     $.getScript(url);
   });
 

@@ -5,10 +5,9 @@
   </div>
 
   <% if @activities.next_page %>
-    <a id="load_more" href="#">
+    <a class="load_more" href="#">
       <%= t "activities.general.load_more" %>
+      <%= will_paginate @activities, class: "hide pagination" %>
     </a>
   <% end %>
-
-  <%= will_paginate @activities, class: "hide pagination" %>
 </div>
