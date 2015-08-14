@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def index
     load_review
-    @comments = @review.comments.paginate page: params[:page],
+    @comments = @review.comments.latest.paginate page: params[:page],
       per_page: Settings.pagination.comment_size
     respond_to do |format|
       format.html{redirect_to @review.book}

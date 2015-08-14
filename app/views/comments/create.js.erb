@@ -1,7 +1,13 @@
 <% unless @comment.errors.any? %>
-  $("#comments_<%= @review.id %>")
+  $("#comments_<%= @review.id %>").find(".comment_list")
     .prepend('<%= escape_javascript(render "comments/comment", comment: @comment) %>');
   $("#comment_content_<%= @review.id %>").val("");
+
+  var countContainer = $("#comments_<%= @review.id %>").find(".counting_comments");
+  var newCount = parseInt(countContainer.text()) + 1;
+  var countText = countContainer.text().replace(/\d+/, newCount);
+
+  countContainer.text(countText);
 <% else %>
   $("#flash").replaceWith('<%= j render "layouts/flash" %>');
 <% end %>

@@ -24,6 +24,9 @@
             <%= render "layouts/admin_menu" %>
           <% end %>
           <li>
+            <%= link_to t("application.menu.members"), users_path %>
+          </li>
+          <li>
             <%= link_to t("application.buttons.request_new_book"), new_request_path,
               id: "requestBook", "data-modal-title": t("requests.general.request_new_book"),
               class: "btn btn-primary btn-sm" if can? :create, Request %>

@@ -26,6 +26,9 @@ en:
       follow: "Follow"
       unfollow: "Unfollow"
       new_book: "New Book"
+      view_detail: "View detail"
+    menu:
+      members: "Members"
     flash:
       permission_denied: "Permission Denied"
       category_created: "Category has been created successfully !"
@@ -56,6 +59,7 @@ en:
       request_sent: "Your request has been sent successfully. Please go to your profile page to check request status"
       ago: "ago"
       comment: "comment"
+      log_in: "Please sign in to comment!"
     labels:
       cancel: "Cancel"
       pending: "Pending"
@@ -74,6 +78,8 @@ en:
       favorite_books: "Favorite Books"
       followers: "Followers"
       following: "Following"
+    index:
+      "all_user": "All Members"
   requests:
     general:
       request_new_book: "Request A New Book"
