@@ -7,8 +7,8 @@
     <div class="profile-usertitle-job"><%= @user.email %></div>
   </div>
   <div class="profile-userbuttons">
-    <div id="relationship">
-      <%= render "relationship_form" %>
+    <div id="relationship_<%= @user.id %>">
+      <%= render "relationship_form", user: @user %>
     </div>
   </div>
   <div class="profile-usermenu">
@@ -43,13 +43,29 @@
       <% end %>
       <% if current_user && current_user == @user && !current_user.admin? %>
         <li class="<%= "active" if @type == Settings.users.requests %>">
-          <%= link_to user_path(@user, type: "requests"),
+          <%= link_to user_path(@user, type: Settings.users.requests),
             class: "profile-link" do %>
             <i class="glyphicon glyphicon-th"></i>
             <%= t "users.show.requests" %>
           <% end %>
         </li>
       <% end %>
+      <li class="<%= "active" if @type == Settings.users.followers %>">
+        <%= link_to user_path(@user, type: Settings.users.followers),
+          class: "profile-link" do %>
+          <i class="glyphicon glyphicon glyphicon-bookmark"></i>
+          <%= t "users.show.followers" %>
+          <span class="badge pull-right"><%= @user.followeds.count %></span>
+        <% end %>
+      </li>
+      <li class="<%= "active" if @type == Settings.users.following %>">
+        <%= link_to user_path(@user, type: Settings.users.following),
+          class: "profile-link" do %>
+          <i class="glyphicon glyphicon glyphicon-screenshot"></i>
+          <%= t "users.show.following" %>
+          <span class="badge pull-right"><%= @user.following.count %></span>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>

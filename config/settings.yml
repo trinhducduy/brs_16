@@ -26,6 +26,8 @@ users:
   timeline: timeline
   edit: "edit"
   requests: "requests"
+  followers: "followers"
+  following: "following"
   avatar:
     size: 30x30
 text:
