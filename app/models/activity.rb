@@ -12,7 +12,8 @@ class Activity < ActiveRecord::Base
     when Settings.activities.follow, Settings.activities.followed
       User.find_by id: target_id
     when Settings.activities.read, Settings.activities.reading,
-      Settings.activities.favored, Settings.activities.review
+      Settings.activities.favored, Settings.activities.review,
+      Settings.activities.comment
       Book.find_by id: target_id
     else
       nil

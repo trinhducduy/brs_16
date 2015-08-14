@@ -1,8 +1,12 @@
-<%= form_for review.comments.build, remote: true do |f| %>
-  <div class="form-group">
-    <%= f.hidden_field :review_id, value: review.id %>
-    <%= f.text_area :content, rows: 1, placeholder: t("books.show.leave_comment"),
-      class: "form-control", required: true, id: "comment_content_#{review.id}" %>
-  </div>
-  <%= f.submit t("application.buttons.send"), class: "btn btn-primary" %>
+<% if user_signed_in? %>
+  <%= form_for review.comments.build, remote: true do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field :review_id, value: review.id %>
+      <%= f.text_area :content, rows: 1, placeholder: t("books.show.leave_comment"),
+        class: "form-control", required: true, id: "comment_content_#{review.id}" %>
+    </div>
+    <%= f.submit t("application.buttons.send"), class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <p><%= link_to t("application.messages.log_in"), new_user_session_path %></p>
 <% end %>

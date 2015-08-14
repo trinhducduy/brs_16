@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
 
   before_create :create_comment_log
 
-  scope :lastest, ->{order created_at: :desc}
+  scope :latest, ->{order created_at: :desc}
 
   after_create :inform_new_comment
 

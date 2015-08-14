@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   before_action :load_user, only: [:edit, :show, :update]
+
+  def index
+    @users = User.paginate page: params[:page], per_page: Settings.pagination.page_size
+  end
 
   def show
     case @type = params[:type] || Settings.users.timeline

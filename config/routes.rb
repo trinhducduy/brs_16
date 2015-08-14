@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "about", to: "static_pages#about"
 
   resources :requests, only: [:new, :create, :update]
-  resources :users, only: [:update, :edit, :show]
+  resources :users, only: [:update, :edit, :show, :index]
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy, :index]
 
