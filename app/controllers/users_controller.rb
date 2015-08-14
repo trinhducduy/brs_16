@@ -9,6 +9,10 @@ class UsersController < ApplicationController
       list_favorite_books
     when Settings.users.requests
       list_user_requests
+    when Settings.users.followers
+      list_followers
+    when Settings.users.following
+      list_following
     else
       timeline
     end
@@ -57,5 +61,17 @@ class UsersController < ApplicationController
     @requests = @user.requests.latest.paginate page: params[:page],
       per_page: Settings.pagination.page_size
     render "users/requests"
+  end
+
+  def list_followers
+    @users = @user.followeds.paginate page: params[:page],
+      per_page: Settings.pagination.page_size
+    render "users/relationships"
+  end
+
+  def list_following
+    @users = @user.following.paginate page: params[:page],
+      per_page: Settings.pagination.page_size
+    render "users/relationships"
   end
 end

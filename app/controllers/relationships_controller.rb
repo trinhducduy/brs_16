@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @user = User.find params[:relationship][:user_id]
+    @user = User.find params[:user_id]
     unless current_user.active_relationships.create followed_id: @user.id
       flash[:danger] = t "application.flash.something_wrong"
     end

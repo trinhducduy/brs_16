@@ -72,6 +72,8 @@ en:
       timeline: "Timeline"
       reading_history: "Reading History"
       favorite_books: "Favorite Books"
+      followers: "Followers"
+      following: "Following"
   requests:
     general:
       request_new_book: "Request A New Book"
