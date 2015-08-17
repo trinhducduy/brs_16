@@ -22,8 +22,9 @@ class Book < ActiveRecord::Base
 
   private
   def published_date_must_be_less_than_today
-    errors.add :published_date,
-      I18n.t("application.messages.wrong_date") if self.published_date.to_date > Date.today
+    if self.published_date.present? && self.published_date.to_date > Date.today
+      errors.add :published_date, I18n.t("application.messages.wrong_date")
+    end
   end
 
   def self.ransackable_attributes auth_object = nil
