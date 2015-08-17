@@ -64,6 +64,7 @@ group :development, :test do
   gem "spring"
   gem "rspec-rails", "~> 3.0"
   gem "rspec-collection_matchers"
+  gem "rspec-activemodel-mocks"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
   gem "shoulda-callback-matchers"
