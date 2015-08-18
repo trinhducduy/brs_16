@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def timeline
-    @activities = @user.activities.includes(:liked_users).paginate page: params[:page],
+    @activities = @user.activities.latest.includes(:liked_users).paginate page: params[:page],
       per_page: Settings.pagination.activity_log.page_size
     respond_to do |format|
       format.html {render "users/timeline"}

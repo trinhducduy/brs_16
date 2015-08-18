@@ -4,6 +4,8 @@ class Activity < ActiveRecord::Base
   has_many :liked_users, through: :activity_likes,
     class_name: "User", source: :user
 
+  scope :latest, ->{order created_at: :desc}
+
   before_create :create_target_name
 
   private
