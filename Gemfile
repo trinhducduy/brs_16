@@ -66,6 +66,7 @@ group :development, :test do
   gem "rspec-collection_matchers"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara"
+  gem "shoulda-callback-matchers"
 end
 
 group :production do
