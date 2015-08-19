@@ -3,7 +3,8 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find params[:user_id]
-    unless current_user.active_relationships.create followed_id: @user.id
+    relationship = current_user.active_relationships.build followed_id: @user.id
+    unless relationship.save
       flash[:danger] = t "application.flash.something_wrong"
     end
     respond_to do |format|
