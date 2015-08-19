@@ -2,7 +2,7 @@ class Admin::BooksController < Admin::BaseController
   before_action :load_book, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.all.paginate page: params[:page],
+    @books = Book.paginate page: params[:page],
      per_page: Settings.pagination.page_size
   end
 
