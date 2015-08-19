@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       flash[:danger] = t "application.flash.delete_comment_failed"
     end
     respond_to do |format|
-      format.html{redirect_to comment.review.book}
+      format.html{redirect_to @comment.review.book}
       format.js
     end
   end
